@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> </title>
+    <style>
+        * {   box-sizing: border-box;  }
+
+        .carousel-inner img { 
+            width: 100%;
+            height: 500px;  
+            
+        }
+
+        body {
+          margin: auto;
+          position: relative;
+        }
+
+        .carousel-inner {
+            text-align: center;
+        }
+
+        .container {
+          position: relative;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+            height: 100%;
+            width: 1200px;
+        }
+
+        .main-self {
+            position: relative;
+            width: 100%;
+            height: 400px;
+        }
+
+        .main-text {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            font-size: 35px;
+            text-shadow: 2px 2px 3px rgb(255, 255, 255);
+        }
+
+        .main2-self {
+            /* border: 5px solid green; */
+            width: 100%;
+            height: 50px;
+            margin: 3px 0;
+        }
+
+        .main2-self ul {
+            display: flex;
+            list-style: none;
+            margin-left: -40px;
+            height: 50px;
+        }
+
+        .main2-self ul li {
+            text-align: center;
+            flex: 1;
+            /* border: 1px solid #000; */
+            height: inherit;
+            float: left;
+        }
+        .main2-self ul li a {
+            /* border: 1px solid #000; */
+            display: block;
+            background-color: #f0e4e4;
+            height: 50px;
+            line-height: 50px;
+            color: #000;
+        }
+
+        .main2-self ul li:nth-child(2) {
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+        }
+
+        .main2-self ul li:nth-child(3) {
+            border-right: 1px solid #ccc;
+        }
+
+        .main2-self ul li a:hover {
+            background-color: #444444;
+            color: #fff;
+            transition: 0.5s;
+        }
+
+        .sub-text {
+          position: relative;
+        }
+
+        .sub-text::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translate(-50% 0);
+          border-bottom: 1px solid #aaa;
+          width: 500px;
+          height: 1px;
+        }
+
+        .sub-text::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translate(-50% 0);
+          border-bottom: 1px solid #aaa;
+          width: 500px;
+          height: 1px;
+        }
+
+        .login {
+            height: 400px;
+        }
+
+        .login div {
+            margin: auto;
+        }
+
+        .fieldset-item div {
+            width: 500px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .fieldset-item div input[type=text], 
+        .fieldset-item div input[type=password] {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .fieldset-item div input[type=text], 
+        .fieldset-item div input[type=password] {
+            width: 100%;
+          padding: 15px;
+          font-size: 15px;
+          border: none;
+          border-bottom: 1px solid #aaa;
+        }
+        .fieldset-item div input[type=text]:focus, 
+        .fieldset-item div input[type=password]:focus {
+          outline: none;
+        }
+
+        .fieldset-item div label {
+            color: #333333;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .fieldset-item div:nth-child(3) a {
+            float: right;
+            text-decoration: none;
+            color: #333333;
+            font-size: 13px;
+        }
+
+        .fieldset-item div label input[type=checkbox] {
+            cursor: pointer;
+        }
+
+        .fieldset-item div span {
+            display: block;
+            margin: 10px 0;
+        }
+
+        .fieldset-item div:nth-child(4) a {
+            text-decoration: none;
+            display: block;
+            color: #000;
+            text-align: center;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            border: 1px solid #ccc;
+            background-color: #eee;
+        }
+
+        .fieldset-item div:nth-child(4) a:hover {
+            background-color: #444;
+            color: #fff;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main main-self"><img src="./images/main_4.jpg" width="100%" height="100%">
+            <b class="main-text"> Login </b>
+        </div>
+        <div class="main2 main2-self">
+            <ul>
+                <li><a href="./main.html" style="text-decoration-line: none;">Home</a></li>
+                <li> <a href="./post.html" style="text-decoration-line: none;">Post</a></li>
+                <li><a href="./login.html" style="text-decoration-line: none;">Login</a> </li>
+                <li><a href="./join.html" style="text-decoration-line: none;">Join</a> </li>
+                <li><a href="./testinsta.html" style="text-decoration-line: none;">인스타</a> </li>
+            </ul>
+        </div>
+
+        <h2 class="sub-text" style="text-align: center;"> login </h2>
+        <div class="login">
+            <div>
+                <form action="">
+                    <div class="fieldset-item">
+                        <div>
+                            <span>아이디</span>
+                            <input type="text" name="" id="" placeholder="아이디를 입력하세요">
+                        </div>
+                        <div>
+                            <span>비밀번호</span>
+                            <input type="password" name="" id="" placeholder="비밀번호를 입력하세요">
+                        </div>
+                        <div>
+                            <label for="auto"><input type="checkbox" name="auto" id="auto" style="margin-right:15px;">자동로그인</label>
+                            <a href="#" class="loginbtn">ID/PW 찾기</a>
+                        </div>
+                        <div>
+                            <a href="#" class="loginbtn">로그인</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> </title>
+    <style>
+      * {
+            box-sizing: border-box;
+        }
+
+        .carousel-inner img {  
+            width: 100%;
+            height: 500px;
+            
+        }
+
+        body {
+          margin: auto;
+          position: relative;
+        }
+
+        .carousel-inner {
+            text-align: center;
+        }
+
+
+        .container {
+          position: relative;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+            height: 100%;
+            width: 1200px;
+        }
+
+        .container div {
+            /* display: block; */
+            left:0%
+        }
+
+        .main-self {
+            position: relative;
+            width: 100%;
+            height: 400px;
+        }
+
+        .main-text {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            font-size: 35px;
+            text-shadow: 2px 2px 3px rgb(255, 255, 255);
+        }
+
+        .main2-self {
+            /* border: 5px solid green; */
+            width: 100%;
+            height: 50px;
+            margin: 3px 0;
+        }
+
+        .main2-self ul {
+            display: flex;
+            list-style: none;
+            margin-left: -40px;
+            height: 50px;
+        }
+
+        .main2-self ul li {
+            text-align: center;
+            flex: 1;
+            /* border: 1px solid #000; */
+            height: inherit;
+            float: left;
+        }
+
+        .main2-self ul li a {
+            /* border: 1px solid #000; */
+            display: block;
+            background-color: #f0e4e4;
+            height: 50px;
+            line-height: 50px;
+            color: #000;
+        }
+
+        .main2-self ul li:nth-child(2) {
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+        }
+
+        .main2-self ul li:nth-child(3) {
+            border-right: 1px solid #ccc;
+        }
+
+        .main2-self ul li a:hover {
+            background-color: #444444;
+            color: #fff;
+            transition: 0.5s;
+        }
+
+        .sub-text {
+          position: relative;
+        }
+
+        .sub-text::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translate(-50% 0);
+          border-bottom: 1px solid #aaa;
+          width: 500px;
+          height: 1px;
+        }
+
+        .sub-text::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translate(-50% 0);
+          border-bottom: 1px solid #aaa;
+          width: 500px;
+          height: 1px;
+        }
+
+        .members {
+            height: 500px;
+        }
+
+        .members .members-item {
+            /* border: 1px solid #ccc; */
+            width: 500px;
+            margin: auto;
+            /* padding: 0 40px; */
+        }
+
+        .members .members-item div {
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        .members .members-item div:nth-child(1) {
+            border: 1px solid #aaa;
+            background-color: #ccc;
+            color: #444;
+            font-size: 13px;
+        }
+
+        .members .members-item div:nth-child(2) label {
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .members .members-item div:nth-child(2) label:nth-child(2) {
+            float: right;
+        }
+
+        .members .members-item div:nth-child(3) table {
+            width: 100%;
+            color: #333;
+            font-size: 15px;
+        }
+
+        .members .members-item div:nth-child(3) table input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-bottom: 1px solid #aaa;
+        }
+
+        .members .members-item div:nth-child(3) table input:focus {
+            outline: none;
+        }
+
+        .members .members-item div:nth-child(4) input {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        .members .members-item div:nth-child(4) input:hover {
+            background-color: #444444;
+            color: #fff;
+        }
+        
+        .members .members-item div:nth-child(4) input:nth-child(1) {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+ 
+<body>
+    <div class="container">
+        <div class="main main-self"><img src="./images/main.jpg" width="100%" height="100%">
+            <b class="main-text"> SignUp </b>
+        </div>
+        <div class="main2 main2-self">
+            <ul>
+                <li><a href="./main.html" style="text-decoration-line: none;">Home</a></li>
+                <li> <a href="./post.html" style="text-decoration-line: none;">Post</a></li>
+                <li><a href="./login.html" style="text-decoration-line: none;">Login</a> </li>
+                <li><a href="./join.html" style="text-decoration-line: none;">Join</a> </li>
+                <li><a href="./testinsta.html" style="text-decoration-line: none;">인스타</a> </li>
+            </ul>
+        </div>
+        <h2 class="sub-text" style="text-align: center;"> sign up </h2>
+        <div class="members">
+            <div class="members-item">
+                <div class="members2">
+                    개인정보보호법에 따라 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적,
+                    개인정보의 보유 및 이용기간, 동의 거부권 및 동의 거부 시 불이익에 관한 사항을 안내 드리오니 자세히 읽은 후
+                    동의하여 주시기 바랍니다.
+                </div> 
+                <div class="agree">
+                    <label for="yes"><input type="radio" name="agree" id="yes"> 동의합니다</label>
+                    <label for="no"><input type="radio" name="agree" id="no"> 동의하지 않습니다.</label>
+                </div>
+                <div class="content">
+                    <table> 
+                        <tr>
+                            <td class="place">이름</td>
+                            <td class="place2"> : </td>
+                            <td><input type="text" placeholder="이름을 입력하세요"> </td>
+                        </tr>
+                        <tr>
+                            <td class="place">ID</td>
+                            <td class="place2"> : </td>
+                            <td><input type="text" placeholder="ID를 입력하세요"> </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="place">PW</td>
+                            <td class="place2"> : </td>
+                            <td><input type="password" placeholder="패스워드를 입력하세요"> </td>
+                        </tr>
+                        <tr>
+                            <td class="place">이메일</td>
+                            <td class="place2"> : </td>
+                            <td><input type="text" placeholder="이메일을 입력하세요"> </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="final">
+                    <input type="submit" value="회원가입">
+                    <input type="reset" value="가입취소">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

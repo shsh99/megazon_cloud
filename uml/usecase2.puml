@@ -1,0 +1,29 @@
+@startuml "온라인 뱅킹 프로세스"
+left to right direction
+actor "고객" as customer
+actor "관리자" as admin
+
+rectangle "온라인 뱅킹" {
+  usecase "계좌조회" as check_account
+  usecase "이체" as transfer
+  usecase "비밀번호 변경" as change_pw
+  usecase "사용자관리" as manage_user
+  usecase "로그인" as login
+}
+
+customer -- check_account
+customer -- transfer
+customer -- change_pw
+customer -- login
+
+admin -- manage_user
+admin -- login
+
+' 비밀번호 변경은 로그인 후, 고객만 변경 가능
+transfer .> change_pw : <<extend>>
+check_account .> login : <<include>>
+transfer .> login : <<include>>
+
+' 관리자는 사용자 관리 기능 추가
+change_pw .> login : <<include>>
+@enduml

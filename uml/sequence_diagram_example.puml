@@ -1,0 +1,73 @@
+/'
+유스케이스 다이어그램
+사용자와 시스템기능 간의 관계 보여줌
+
+주요 문법
+rectangle : 시스템의 범위
+actor : 사용자 같은 외부 참여자
+usecase : 시스템의 기능
+participant: 객체 내부 시스템
+-> : 관계
+--> : 의존 관계
+alt, else end : 조건 분기
+activate, deactivate : 객체 활성화/비활성화
+<<include>> : 반드시 포함되는 관계
+<<extend> : 특정 조건에서 확장되는관계
+
+고객 대상자를 관리하는 관리자가 있다는 전제 하에 진행
+'/
+
+@startuml "온라인 뱅킹 프로세스"
+left to right direction
+actor "고객" as customer
+actor "관리자" as admin
+
+rectangle "온라인 뱅킹" {
+  계좌조회, 이체, 비밀번호, 사용자관리 
+  usecase"계좌조회" as check_account
+  usecase"이체" as transfer
+  usecase"비밀번호" as change_pw
+  usecase"사용자관리" as manager_user
+}
+
+customer -- check_account
+customer -- transfer
+customer -- change_pw
+
+admin -- manager_user
+
+transfer .> change_pw : <<extend>>
+check_account .> login : <<include>>
+transfer .> login : <<include>>
+change_pw .> : <<include>>
+@enduml
+
+participant "웹 서버" as webServer
+participant "인증 서버" as authServer
+database "데이터베이스" as db
+
+user -> webServer: 회원가입 요청
+activate webServer
+
+webServer -> authServer: 이메일 중복 확인
+activate authServer
+authServer -> db: 이메일 조회
+activate db
+db --> authServer: 조회 결과 반환
+deactivate db
+
+alt 이메일이 이미 존재할 경우
+  authServer --> webServer: 실패 (이미 가입된 이메일)
+else 이메일이 존재하지 않을 경우
+  authServer --> webServer: 성공
+end
+
+deactivate authServer
+webServer -> db: 새 회원 정보 저장
+activate db
+db --> webServer: 저장 완료
+deactivate db
+
+webServer -> user: 회원가입 성공 응답
+deactivate webServer
+@enduml

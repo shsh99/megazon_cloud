@@ -1,0 +1,18 @@
+/'
+plantuml 주석  시퀀스 sequence diagram
+actor : 사용자 , 참여자
+participant: 객체 내부 시스템
+-> 메세지 요청 request
+--> 응답 response
+alt, else end 조건 분기
+activate, deactivate  객체 활성화/비활성화
+'/
+
+@startuml "request login process"
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: another authentication Response
+@enduml
+

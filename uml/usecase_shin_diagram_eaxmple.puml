@@ -1,0 +1,40 @@
+/'
+유스케이스 다이어그램
+사용자와 시스템기능 간의 관계 보여줌
+
+주요 문법
+rectangle : 시스템의 범위
+actor : 사용자 같은 외부 참여자
+usecase : 시스템의 기능
+participant: 객체 내부 시스템
+-> : 관계
+--> : 의존 관계
+alt, else end : 조건 분기
+activate, deactivate : 객체 활성화/비활성화
+<<include>> : 반드시 포함되는 관계
+<<extend> : 특정 조건에서 확장되는관계
+'/
+
+@startuml "온라인 뱅킹 프로세스"
+left to right direction
+actor "고객" as customer
+actor "관리자" as admin
+
+rectangle "온라인 뱅킹" {
+  usecase "계좌조회" as check_account
+  usecase "이체" as transfer
+  usecase "비밀번호 변경" as change_pw
+  usecase "사용자관리" as manage_user
+  usecase "로그인" as login
+}
+
+customer -- check_account
+customer -- transfer
+customer -- change_pw
+admin -- manage_user
+
+transfer .> change_pw : <<extend>>
+check_account .> login : <<include>>
+transfer .> login : <<include>>
+change_pw .> login : <<include>>
+@enduml

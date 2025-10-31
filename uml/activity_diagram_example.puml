@@ -1,0 +1,69 @@
+/'
+  **액티비티 다이어그램 (Activity Diagram)**
+  시스템의 활동이나 프로세스의 흐름을 나타냅니다.
+
+  **주요 문법:**
+  - `start`: 시작
+  - `stop`: 종료
+  - `:`: 액티비티(단계) 정의
+  - `if`, `else`, `endif`: 조건부 분기
+  - `fork`, `split`, `end fork`: 병렬 흐름
+  - sdl전기흐름다이어그램
+'/
+
+'저자 김영임
+/' 
+날짜: 2025-09-25
+'/
+
+@startuml "결제 프로세스"
+start
+:상품 선택;
+:장바구니 담기;
+:결제 페이지로 이동;
+
+if (쿠폰 적용?) then (yes)
+  :할인 금액 계산;
+else (no)
+  :할인 없음;
+endif
+
+if (결제 수단?) then (포인트)
+  :잔여 포인트 조회;
+  if (전액 결제 가능?) then (yes)
+    :포인트로 결제 완료;
+  else (no)
+    :추가 결제 수단 선택;
+    fork
+      :신용카드 정보 입력;
+    split
+      :포인트 충전 여부 질문;
+      if (포인트 충전 여부?) then (yes)
+        :포인트 충전 액수 입력;
+        :포인트 충전 완료;
+      else (no)
+      endif
+    split again
+      :간편 결제 정보 입력;
+    end split
+    end fork
+    :결제 요청;
+  endif
+else (신용카드)
+  :신용카드 정보 입력;
+  :PG사로 결제 요청;
+endif
+
+:결제 완료;
+:주문 내역 생성;
+
+if (재고 확인 성공?) then (yes)
+  :상품 배송 준비;
+else (no)
+  :주문 실패 메시지 전송;
+  stop
+endif
+
+:구매자에게 알림;
+stop
+@enduml
